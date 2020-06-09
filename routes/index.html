@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function myFunction() {
+            var nums = [];
+            for (var i = 0; i < 6; i++) { //外层控制循环次数，即生成几个数
+                nums[i] = parseInt(Math.random() * 9 + 1); //随机数范围是1-100
+                for (var j = 0; j < i; j++) { //内层控制当前生成的随机数和前一个数进行比较，重复则重新生成，反之存入新数组
+                    if (nums[i] == nums[j]) {
+                        i--; //重新覆盖i重复值
+                    }
+                }
+            }
+            var s=nums.join(" ")
+                document.getElementById('showData').innerHTML=s
+        }
+    </script>
+
+</head>
+<button onclick="myFunction()">getDate</button>
+<div id="showData"></div>
+</body>
+
+</html>
